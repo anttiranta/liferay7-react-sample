@@ -1,0 +1,7 @@
+.gradle/
+build/
+reactapp/node_modules/
+reactapp/coverage/
+target/
+.idea
+src/main/resources/META-INF/resources/dist
