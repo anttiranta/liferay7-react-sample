@@ -1,0 +1,54 @@
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel"
+	compileOnly group: "com.liferay.portal", name: "com.liferay.util.taglib"
+	compileOnly group: "javax.portlet", name: "portlet-api"
+	compileOnly group: "javax.servlet", name: "javax.servlet-api"
+	compileOnly group: "jstl", name: "jstl"
+	compileOnly group: "org.osgi", name: "osgi.cmpn"
+	compileInclude group: "com.google.code.gson", name: "gson", version: "2.7"
+}
+
+// use node.nodeDir here to use the same node version as specified by liferay gradle node plugin
+task environment(type: Exec) {
+	commandLine 'env'
+}
+
+task npmInstallApp(type: Exec) {
+	workingDir 'src/reactapp'
+	environment PATH: "${node.nodeDir}/bin:${environment.PATH}"
+	commandLine "${node.nodeDir}/bin/npm install".split(' ')
+}
+
+task npmTestApp(type: Exec) {
+	workingDir 'src/reactapp'
+	environment PATH: "${node.nodeDir}/bin:${environment.PATH}"
+	commandLine "${node.nodeDir}/bin/npm run test".split(' ')
+}
+
+task npmRunAppBuild(type: Exec) {
+	workingDir 'src/reactapp'
+	environment PATH: "${node.nodeDir}/bin:${environment.PATH}"
+	commandLine "${node.nodeDir}/bin/npm run build".split(' ')
+}
+
+task cleanJsDist {
+	doLast {
+		delete "./src/main/resources/META-INF/resources/dist"
+	}
+}
+
+npmInstallApp.dependsOn downloadNode
+npmRunAppBuild.dependsOn npmTestApp
+npmRunAppBuild.dependsOn npmInstallApp
+
+jar.mustRunAfter npmRunAppBuild
+
+deploy.dependsOn npmRunAppBuild
+deploy.finalizedBy(cleanJsDist)
+
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion

@@ -1,0 +1,5 @@
+{
+  "general.unknown": "unknown",
+  "frontpage.greeting": "Liferay React Sample! The time is {time}",
+  "frontpage.refresh-time-btn-text": "Refresh time"
+}

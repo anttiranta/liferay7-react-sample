@@ -1,0 +1,5 @@
+{
+  "general.unknown": "tuntematon",
+  "frontpage.greeting": "Liferay React Esimerkki! Aika on {time}",
+  "frontpage.refresh-time-btn-text": "Päivitä aika"
+}

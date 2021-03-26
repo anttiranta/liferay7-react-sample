@@ -1,0 +1,5 @@
+Bundle-Name: liferay7-react-sample
+Bundle-SymbolicName: liferay7.react.sample
+Bundle-Version: 1.0.0
+Export-Package: liferay7.react.sample.constants
+Web-ContextPath: /liferay7-react-sample
