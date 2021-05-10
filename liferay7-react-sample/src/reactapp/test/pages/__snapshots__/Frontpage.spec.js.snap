@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FrontPage component renders correctly 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="timeContainer"
+  >
+    Liferay React Sample! The time is 15:25:43
+  </div>
+  <div
+    className="buttonContainer"
+  >
+    <button
+      onClick={[MockFunction refreshTime]}
+    >
+      Refresh time from server
+    </button>
+  </div>
+</div>
+`;
+
+exports[`FrontPage component renders using initial values 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="timeContainer"
+  >
+    Liferay React Sample! The time is unknown
+  </div>
+  <div
+    className="buttonContainer"
+  >
+    <button
+      onClick={[MockFunction refreshTime]}
+    >
+      Refresh time from server
+    </button>
+  </div>
+</div>
+`;

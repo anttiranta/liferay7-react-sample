@@ -4,4 +4,5 @@ reactapp/node_modules/
 reactapp/coverage/
 target/
 .idea
+.DS_Store
 src/main/resources/META-INF/resources/dist
