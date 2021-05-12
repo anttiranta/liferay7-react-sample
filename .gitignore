@@ -1,7 +1,7 @@
 .gradle/
 build/
-reactapp/node_modules/
-reactapp/coverage/
+node_modules/
+coverage/
 target/
 .idea
 .DS_Store

@@ -30,7 +30,7 @@ describe("FrontPage component", () => {
     it('renders correctly', () => {
         useFrontPage.mockReturnValueOnce(hookReturnValues);
 
-        let instance = create(
+        const instance = create(
             <IntlProvider locale="en-US">
                 <FrontPage/>
             </IntlProvider>
@@ -43,7 +43,7 @@ describe("FrontPage component", () => {
         const myHookReturnValues = [{}, hookReturnValues[1]];
         useFrontPage.mockReturnValueOnce(myHookReturnValues);
 
-        let instance = create(
+        const instance = create(
             <IntlProvider locale="en-US">
                 <FrontPage/>
             </IntlProvider>
@@ -56,16 +56,16 @@ describe("FrontPage component", () => {
         useFrontPage.mockReturnValueOnce(hookReturnValues);
         const {refreshTime} = hookReturnValues[1];
 
-        let instance = create(
+        const instance = create(
             <IntlProvider locale="en-US">
                 <FrontPage/>
             </IntlProvider>
         );
 
-        const btns = instance.root.findAllByType('button');
-        const refreshButton = btns[0];
+        const button = instance.root.findByType('button');
+        expect(refreshTime).toHaveBeenCalledTimes(0);
 
-        refreshButton.props.onClick();
+        button.props.onClick();
         expect(refreshTime).toHaveBeenCalledTimes(1);
     });
 });
