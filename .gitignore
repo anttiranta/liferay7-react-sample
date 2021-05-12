@@ -3,6 +3,6 @@ build/
 node_modules/
 coverage/
 target/
+dist/
 .idea
 .DS_Store
-src/main/resources/META-INF/resources/dist

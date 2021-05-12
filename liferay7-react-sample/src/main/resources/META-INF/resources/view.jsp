@@ -2,4 +2,4 @@
 
 <div id="<portlet:namespace />-root"></div>
 
-<script src="<%=request.getContextPath()%>/dist/liferay7-react-sample-bundle.js"></script>
+<script src="<%=PortalUtil.getStaticResourceURL(request, request.getContextPath() + "/dist/liferay7-react-sample-bundle.js")%>"></script>
